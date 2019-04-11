@@ -6,8 +6,14 @@ package org.biglelegal.com;
  */
 public class Main 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws Exception
     {
-        System.out.println( "Hello World!" );
+        System.out.println( "Initial Document Converting!" );
+        
+        new Base64Constructer();
+
+        System.out.println("The conversion has been completed");
+         
+        
     }
 }
