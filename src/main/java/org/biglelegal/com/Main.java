@@ -16,7 +16,7 @@ public class Main
         
        // Base64Constructer.decodeToDesiredOutput(args[0], args[1]);
         
-       new PdfToDocxConverter().transformerToDocx();
+       new PdfToDocxConverter().transformerToDocx("Untitled.pdf","doc.docx");
        new DocxToPdfConverter().convertToPDF("valid-docx.docx", "converted-pdf.pdf");
         System.out.println("The conversion has been completed");
          

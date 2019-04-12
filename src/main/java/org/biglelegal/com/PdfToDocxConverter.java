@@ -52,11 +52,11 @@ public class PdfToDocxConverter {
 
     }
 
-    public void transformerToDocx() {
+    public void transformerToDocx(String inputFile, String outputFile) {
 
-        String content = PdfToDocxConverter.pdftoText("Untitled.pdf");
+        String content = PdfToDocxConverter.pdftoText(inputFile);
 
-        File fileOutput = new File("something-decoded1.docx");
+        File fileOutput = new File(outputFile);
 
         // if file doesnt exists, then create it
         if (!fileOutput.exists()) {
