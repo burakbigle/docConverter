@@ -1,5 +1,9 @@
 package org.biglelegal.com;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 /**
  * Initialized to create a document converter HTML-PDF-DOCX!
  *
@@ -10,8 +14,10 @@ public class Main
     {
         System.out.println( "Initial Document Converting!" );
         
-        new Base64Constructer();
-
+       // Base64Constructer.decodeToDesiredOutput(args[0], args[1]);
+        
+       new PdfToDocxConverter().transformerToDocx();
+       new DocxToPdfConverter().convertToPDF("valid-docx.docx", "converted-pdf.pdf");
         System.out.println("The conversion has been completed");
          
         

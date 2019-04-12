@@ -21,18 +21,6 @@ public class Base64Constructer {
 
     private static final boolean IS_CHUNKED = true;
 
-    public Base64Constructer() throws Exception {
-        try {
-            /* Encode a file and write the encoded output to a text file. */
-            //encodeToBase64("something-decoded.pdf", "something-decoded-converted.txt", IS_CHUNKED);
-
-            /* Decode a file and write the decoded file to file system */
-            decodeToDesiredOutput("something-encoded.txt", "something-decoded.docx");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     /**
      * This method converts the content of a source file into Base64 encoded data
      * and saves that to a target file.
@@ -44,8 +32,8 @@ public class Base64Constructer {
         writeByteArraysToFile(targetFile, base64EncodedData);
     }
 
-    private static void decodeToDesiredOutput(String sourceFile, String targetFile) throws Exception {
-        //File is corrupted error will be checked tomorrow.
+    public static void decodeToDesiredOutput(String sourceFile, String targetFile) throws Exception {
+        // File is corrupted error will be checked tomorrow.
         byte[] decodedBytes = Base64.decodeBase64(loadFileAsBytesArray(sourceFile));
 
         writeByteArraysToFile(targetFile, decodedBytes);
@@ -54,11 +42,8 @@ public class Base64Constructer {
     /**
      * This method loads a file from file system and returns the byte array of the
      * content.
-     * 
-     * @param fileName
-     * @return
-     * @throws Exception
      */
+
     private static byte[] loadFileAsBytesArray(String fileName) throws Exception {
 
         File file = new File(fileName);
@@ -70,13 +55,9 @@ public class Base64Constructer {
         return bytes;
 
     }
-
+    
     /**
      * This method writes byte array content into a file.
-     * 
-     * @param fileName
-     * @param content
-     * @throws IOException
      */
     private static void writeByteArraysToFile(String fileName, byte[] content) throws IOException {
 
