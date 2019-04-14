@@ -1,83 +1,46 @@
 package org.biglelegal.com;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import org.apache.pdfbox.cos.COSDocument;
-import org.apache.pdfbox.pdfparser.PDFParser;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.util.PDFTextStripper;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.parser.PdfReaderContentParser;
+import com.itextpdf.text.pdf.parser.SimpleTextExtractionStrategy;
+import com.itextpdf.text.pdf.parser.TextExtractionStrategy;
+import org.apache.poi.xwpf.usermodel.BreakType;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 public class PdfToDocxConverter {
 
-    public static String pdftoText(String fileName) {
-        PDFParser parser;
-        String parsedText = null;
-        PDFTextStripper pdfStripper = null;
-        PDDocument pdDoc = null;
-        COSDocument cosDoc = null;
-        File file = new File(fileName);
-        if (!file.isFile()) {
-            System.err.println("File " + fileName + " does not exist.");
-            return null;
-        }
+    public void pdftoDocx(String inputPdfFileName, String outputDocxFile) {
+
+        XWPFDocument documentInitiator = new XWPFDocument();
+        String pdfFileName = inputPdfFileName;
+        PdfReader readerPdf;
         try {
-            parser = new PDFParser(new FileInputStream(file));
+            readerPdf = new PdfReader(pdfFileName);
+            PdfReaderContentParser parser = new PdfReaderContentParser(readerPdf);
+            for (int numberOfPages = 1; numberOfPages <= readerPdf.getNumberOfPages(); numberOfPages++) {
+                TextExtractionStrategy strategy = parser.processContent(numberOfPages, new SimpleTextExtractionStrategy());
+                String textExtracted = strategy.getResultantText();
+                /*  XWPFRun object defines a region of text with a common set of properties 
+                */
+                XWPFParagraph analyzingParagraphs = documentInitiator.createParagraph();
+                XWPFRun run = analyzingParagraphs.createRun();
+                run.setText(textExtracted);
+                run.addBreak(BreakType.PAGE);
+                
+            }
+            FileOutputStream out = new FileOutputStream(outputDocxFile);
+            documentInitiator.write(out);
+            documentInitiator.close();
+            
         } catch (IOException e) {
-            System.err.println("Unable to open PDF Parser. " + e.getMessage());
-            return null;
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-        try {
-            parser.parse();
-            cosDoc = parser.getDocument();
-            pdfStripper = new PDFTextStripper();
-            pdDoc = new PDDocument(cosDoc);
-            parsedText = pdfStripper.getText(pdDoc);
-
-        } catch (Exception e) {
-            System.err.println("An exception occured in parsing the PDF Document." + e.getMessage());
-        } finally {
-            try {
-                if (cosDoc != null)
-                    cosDoc.close();
-                if (pdDoc != null)
-                    pdDoc.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return parsedText;
 
     }
 
-    public void transformerToDocx(String inputFile, String outputFile) {
-
-        String content = PdfToDocxConverter.pdftoText(inputFile);
-
-        File fileOutput = new File(outputFile);
-
-        // if file doesnt exists, then create it
-        if (!fileOutput.exists()) {
-            try {
-                fileOutput.createNewFile();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-
-        FileWriter fw;
-        try {
-            fw = new FileWriter(fileOutput.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.close();
-            System.out.println("Done");
-
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-    }
 }

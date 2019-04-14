@@ -1,27 +1,42 @@
 package org.biglelegal.com;
 
-
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import com.documents4j.api.DocumentType;
-import com.documents4j.api.IConverter;
-import com.documents4j.job.LocalConverter;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
+import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.File;
+
+/* We need several jars: 
+
+    fr.opensagres.poi.xwpf.converter.core-2.0.2.jar, 
+    fr.opensagres.poi.xwpf.converter.pdf-2.0.2.jar,
+    fr.opensagres.xdocreport.itext.extension-2.0.2.jar,
+    itext-2.1.7.jar */
 
 public class DocxToPdfConverter {
 
-   public void convertToPDF(String inputFile, String outputFile){
+    public void pdfConverter(String docPath, String pdfPath) {
 
-        try  {
-            InputStream docxInputStream = new FileInputStream(inputFile);
-            OutputStream outputStream = new FileOutputStream(outputFile);
-            IConverter converter = LocalConverter.builder().build();
-            converter.convert(docxInputStream).as(DocumentType.DOCX).to(outputStream).as(DocumentType.PDF).execute();
-            outputStream.close();
-            System.out.println("success");
-        } catch (Exception e) {
+        InputStream inputStreamDocx;
+        try {
+            inputStreamDocx = new FileInputStream(new File(docPath));
+            XWPFDocument document = new XWPFDocument(inputStreamDocx);
+            PdfOptions options = PdfOptions.create();
+            OutputStream outputStreamPdf = new FileOutputStream(new File(pdfPath));
+            PdfConverter.getInstance().convert(document, outputStreamPdf, options);
+            document.close();
+            outputStreamPdf.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

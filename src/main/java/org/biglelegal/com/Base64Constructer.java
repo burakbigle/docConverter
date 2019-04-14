@@ -55,7 +55,7 @@ public class Base64Constructer {
         return bytes;
 
     }
-    
+
     /**
      * This method writes byte array content into a file.
      */
