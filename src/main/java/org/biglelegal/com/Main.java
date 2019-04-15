@@ -12,7 +12,7 @@ public class Main
 {
     public static void main( String[] args ) throws Exception
     {
-        System.out.println( "Initial Document Converting!" );
+        System.out.println( "Document Converting has started!" );
 
         /* The idea is to create multiple if statements to initiate functions,
          * based on the input and output style. 
@@ -24,10 +24,12 @@ public class Main
          *      Will be supported by JUnit unit testing once it is agreed to proceed.
          *  */
 
-       // Base64Constructer.decodeToDesiredOutput(args[0], args[1]);
-        new PdfToHtmlConverter().pdftoHtml("Untitled.pdf", "outputHTML.html");
-        new PdfToDocxConverter().pdftoDocx("Untitled.pdf", "pdf_docxConverted.docx");
-       //new DocxToPdfConverter().pdfConverter("valid-docx.docx", "converted-pdf.pdf");
+      //Base64Constructer.decodeToDesiredOutput(args[0], args[1]);
+      //new HtmlToPdfConverter().htmlToPdf("./Output/example.html", "./Output/converted-html-pdf.pdf");
+      //new HtmlToDocxConverter().htmlToDocx("./Output/example.html", "./Output/converted-html-docx.docx");
+      //new PdfToHtmlConverter().pdftoHtml("./Output/Untitled.pdf", "./Output/outputHTML.html");
+      //new PdfToDocxConverter().pdftoDocx("./Output/Untitled.pdf", "./Output/pdf_docxConverted.docx");
+      //new DocxToPdfConverter().docxToPDf("./Output/valid-docx.docx", "./Output/converted-pdf.pdf");
        
        System.out.println("The conversion has been completed");
          

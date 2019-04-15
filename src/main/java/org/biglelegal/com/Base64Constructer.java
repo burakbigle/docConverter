@@ -29,7 +29,7 @@ public class Base64Constructer {
 
         byte[] base64EncodedData = Base64.encodeBase64(loadFileAsBytesArray(sourceFile), isChunked);
 
-        writeByteArraysToFile(targetFile, base64EncodedData);
+        writeByteArraysToFile(targetFile, base64EncodedData);F
     }
 
     public static void decodeToDesiredOutput(String sourceFile, String targetFile) throws Exception {

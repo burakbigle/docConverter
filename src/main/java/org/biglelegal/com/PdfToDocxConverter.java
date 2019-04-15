@@ -22,20 +22,22 @@ public class PdfToDocxConverter {
             readerPdf = new PdfReader(pdfFileName);
             PdfReaderContentParser parser = new PdfReaderContentParser(readerPdf);
             for (int numberOfPages = 1; numberOfPages <= readerPdf.getNumberOfPages(); numberOfPages++) {
-                TextExtractionStrategy strategy = parser.processContent(numberOfPages, new SimpleTextExtractionStrategy());
+                TextExtractionStrategy strategy = parser.processContent(numberOfPages,
+                        new SimpleTextExtractionStrategy());
                 String textExtracted = strategy.getResultantText();
-                /*  XWPFRun object defines a region of text with a common set of properties 
-                */
+                /*
+                 * XWPFRun object defines a region of text with a common set of properties
+                 */
                 XWPFParagraph analyzingParagraphs = documentInitiator.createParagraph();
                 XWPFRun run = analyzingParagraphs.createRun();
                 run.setText(textExtracted);
                 run.addBreak(BreakType.PAGE);
-                
+
             }
             FileOutputStream out = new FileOutputStream(outputDocxFile);
             documentInitiator.write(out);
             documentInitiator.close();
-            
+
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

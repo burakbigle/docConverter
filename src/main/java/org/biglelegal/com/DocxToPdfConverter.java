@@ -21,7 +21,7 @@ import java.io.File;
 
 public class DocxToPdfConverter {
 
-    public void pdfConverter(String docPath, String pdfPath) {
+    public void docxToPDf(String docPath, String pdfPath) {
 
         InputStream inputStreamDocx;
         try {
