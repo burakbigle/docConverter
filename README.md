@@ -16,6 +16,8 @@ For several purposes, some of these transformations are more complicated than ea
 
 The input files structure is important for the performance of the algorithm, most of the libraries support basic transformation but for a complicated transformations, cheap licensing might be considered.
 
+Any feedback or improvement suggestions will be higlhy appreciated.
+
 The general libary stack not limited but:
 
 * Apachi POI
