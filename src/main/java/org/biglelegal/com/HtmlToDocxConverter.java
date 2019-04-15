@@ -5,9 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
 import javax.xml.bind.JAXBException;
-
 import org.apache.commons.io.FileUtils;
 import org.docx4j.Docx4J;
 import org.docx4j.Docx4jProperties;
