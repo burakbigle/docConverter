@@ -30,6 +30,7 @@ public class HtmlToPdfConverter {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        // No need for multi-catch blocks if all are treated equaly
 
         System.out.println("PDF Created!");
     }

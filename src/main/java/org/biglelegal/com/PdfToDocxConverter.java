@@ -16,6 +16,7 @@ public class PdfToDocxConverter {
     public void pdftoDocx(String inputPdfFileName, String outputDocxFile) {
 
         XWPFDocument documentInitiator = new XWPFDocument();
+        // Why would you do this assignment?
         String pdfFileName = inputPdfFileName;
         PdfReader readerPdf;
         try {
