@@ -9,7 +9,7 @@
 .springBeans
 
 ### IntelliJ IDEA ###
-target/
+target
 *.class
 *.jar
 *.war
