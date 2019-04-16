@@ -1,7 +1,6 @@
 package org.biglelegal.com;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import com.itextpdf.text.Document;
@@ -20,17 +19,9 @@ public class HtmlToPdfConverter {
             document.open();
             XMLWorkerHelper.getInstance().parseXHtml(writer, document, new FileInputStream(inputHtmlFile));
             document.close();
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (DocumentException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
+        } catch (DocumentException | IOException e) {
             e.printStackTrace();
         }
-
         System.out.println("PDF Created!");
     }
 }

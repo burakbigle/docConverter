@@ -7,7 +7,6 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
 import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.File;
@@ -32,12 +31,10 @@ public class DocxToPdfConverter {
             PdfConverter.getInstance().convert(document, outputStreamPdf, options);
             document.close();
             outputStreamPdf.close();
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        // No need for multi-catch blocks if all are treated equaly
     }
 }

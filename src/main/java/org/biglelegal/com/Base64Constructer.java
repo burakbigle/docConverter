@@ -14,18 +14,11 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class Base64Constructer {
 
-    /*
-     * If isChunked parameter is set to true, there is a hard wrap of the output
-     * encoded text.
-     */
-
-    private static final boolean IS_CHUNKED = true;
-
     /**
      * This method converts the content of a source file into Base64 encoded data
      * and saves that to a target file.
      */
-    private static void encodeToBase64(String sourceFile, String targetFile, boolean isChunked) throws Exception {
+    public static void encodeToBase64(String sourceFile, String targetFile, boolean isChunked) throws Exception {
 
         byte[] base64EncodedData = Base64.encodeBase64(loadFileAsBytesArray(sourceFile), isChunked);
 
