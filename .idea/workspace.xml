@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d337f03-6eab-4735-be00-60229032783f" name="Default Changelist" comment="">
+    <list default="true" id="3d337f03-6eab-4735-be00-60229032783f" name="Default Changelist" comment="docxtohtml class is initialized.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/biglelegal/com/DocxToHtmlConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Output/converted-html-docx.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Output/valid-docx.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Output/valid-docx.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/biglelegal/com/DocxToPdfConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/biglelegal/com/DocxToPdfConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/biglelegal/com/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/biglelegal/com/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/biglelegal/com/DocxToHtmlConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+            <state relative-caret-position="281">
+              <caret line="22" column="61" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -275,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555490339019</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="docxtohtml class is initialized.">
+      <created>1555497610209</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1555497610209</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -314,7 +317,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge branch 'master' of https://github.com/burakbigle/docConverter&#10;&#10;# Conflicts:&#10;#&#9;target/classes/org/biglelegal/com/Base64Constructer.class&#10;#&#9;target/classes/org/biglelegal/com/HtmlToDocxConverter.class&#10;#&#9;target/classes/org/biglelegal/com/Main.class" />
     <MESSAGE value="gitignore update&#10;&#10;# Conflicts:&#10;#&#9;target/classes/org/biglelegal/com/Base64Constructer.class&#10;#&#9;target/classes/org/biglelegal/com/HtmlToDocxConverter.class&#10;#&#9;target/classes/org/biglelegal/com/Main.class" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore update&#10;&#10;# Conflicts:&#10;#&#9;target/classes/org/biglelegal/com/Base64Constructer.class&#10;#&#9;target/classes/org/biglelegal/com/HtmlToDocxConverter.class&#10;#&#9;target/classes/org/biglelegal/com/Main.class" />
+    <MESSAGE value="docxtohtml class is initialized." />
+    <option name="LAST_COMMIT_MESSAGE" value="docxtohtml class is initialized." />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -388,8 +392,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/biglelegal/com/DocxToHtmlConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+        <state relative-caret-position="281">
+          <caret line="22" column="61" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
