@@ -6,6 +6,7 @@ import java.io.OutputStream;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
 import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -35,6 +36,6 @@ public class DocxToPdfConverter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // No need for multi-catch blocks if all are treated equaly
+
     }
 }

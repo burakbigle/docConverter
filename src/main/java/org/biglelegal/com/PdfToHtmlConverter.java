@@ -11,7 +11,7 @@ import org.fit.pdfdom.PDFDomTree;
 public class PdfToHtmlConverter {
 
     public void pdftoHtml(String inputPdfFileName, String outputHtmlFile) {
-        
+
         PDDocument pdfInput;
         Writer output;
         try {
@@ -19,7 +19,7 @@ public class PdfToHtmlConverter {
             output = new PrintWriter(outputHtmlFile, "utf-8");
             new PDFDomTree().writeText(pdfInput, output);
             output.close();
-            
+
         } catch (IOException | ParserConfigurationException e) {
 
             e.printStackTrace();

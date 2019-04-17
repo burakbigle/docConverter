@@ -6,11 +6,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import org.apache.commons.codec.binary.Base64;
 
 /**
  * Initialized to create a document converter HTML-PDF-DOCX!
- *
  */
 public class Base64Constructer {
 

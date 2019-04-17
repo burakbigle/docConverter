@@ -8,8 +8,13 @@
 .settings
 .springBeans
 
+## Eclipse
+.classpath
+.project
+
 ### IntelliJ IDEA ###
 target
+.vscode
 *.class
 *.jar
 *.war
