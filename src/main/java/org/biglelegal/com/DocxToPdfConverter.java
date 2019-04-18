@@ -3,9 +3,11 @@ package org.biglelegal.com;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
+
 import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
 import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
