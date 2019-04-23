@@ -1,10 +1,11 @@
-package org.biglelegal.com;
+package org.biglelegal.com.transformation;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
 import javax.xml.parsers.ParserConfigurationException;
+
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.fit.pdfdom.PDFDomTree;
 

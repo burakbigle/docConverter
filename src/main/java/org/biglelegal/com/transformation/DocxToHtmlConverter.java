@@ -1,4 +1,4 @@
-package org.biglelegal.com;
+package org.biglelegal.com.transformation;
 
 import fr.opensagres.poi.xwpf.converter.core.*;
 import org.apache.poi.xwpf.converter.xhtml.XHTMLConverter;

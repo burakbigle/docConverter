@@ -1,7 +1,8 @@
-package org.biglelegal.com;
+package org.biglelegal.com.transformation;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfReaderContentParser;
 import com.itextpdf.text.pdf.parser.SimpleTextExtractionStrategy;
