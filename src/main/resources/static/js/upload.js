@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	$('#btnUploadFile').attr("disabled", true);
 	$("#customFile").change(function() {
-		var fileName = $(this).val().replace(/C:\\fakepath\\/i, '');
+		var fileName = $(this).val().replace(default, '');
 
 		var ext = fileName.split('.').pop().toLowerCase();
 
