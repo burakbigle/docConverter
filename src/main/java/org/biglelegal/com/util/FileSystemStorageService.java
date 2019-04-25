@@ -21,9 +21,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class FileSystemStorageService {
-	
+
 	private Path uploadLocation;
-	
+
 	@PostConstruct
 	public void init() {
 		this.uploadLocation = Paths.get(Constants.UPLOAD_LOCATION);
@@ -33,25 +33,25 @@ public class FileSystemStorageService {
 			throw new RuntimeException("Could not initialize storage", e);
 		}
 	}
-	
+
 	public void store(MultipartFile file) {
 		String filename = StringUtils.cleanPath(file.getOriginalFilename());
-		try {
-			if (file.isEmpty()) {
-				throw new RuntimeException("Failed to store empty file " + filename);
-			}
-			
-			// This is a security check
-			if (filename.contains("..")) {
-				throw new RuntimeException("Cannot store file with relative path outside current directory " + filename);
-			}
-			
-			try (InputStream inputStream = file.getInputStream()) {
-				Files.copy(inputStream, this.uploadLocation.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
-			}
-		} catch (IOException e) {
-			throw new RuntimeException("Failed to store file " + filename, e);
-		}
+        {
+            if (file.isEmpty()) {
+                throw new RuntimeException("Failed to store empty file " + filename);
+            }
+
+            // This is a security check
+            if (filename.contains("..")) {
+                throw new RuntimeException("Cannot store file with relative path outside current directory " + filename);
+            }
+
+            try (InputStream inputStream = file.getInputStream()) {
+                Files.copy(inputStream, this.uploadLocation.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 	}
 
 	public Resource loadAsResource(String filename) {
@@ -70,7 +70,7 @@ public class FileSystemStorageService {
 
 	public List<Path> listSourceFiles(Path dir) throws IOException {
 		List<Path> result = new ArrayList<>();
-		try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir, "*.{pdf}")) {
+		try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir, "*")) {
 			for (Path entry : stream) {
 				result.add(entry);
 			}
@@ -79,7 +79,7 @@ public class FileSystemStorageService {
 		}
 		return result;
 	}
-	
+
 	public Path getUploadLocation() {
 		return uploadLocation;
 	}

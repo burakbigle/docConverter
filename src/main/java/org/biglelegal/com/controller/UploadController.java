@@ -39,42 +39,50 @@ public class UploadController {
 	
 	@RequestMapping(value = "/files/list", method = RequestMethod.GET)
 	public String listFiles(Model model) {
-		List<Path> lodf = new ArrayList<>();
-		List<HRefModel> uris = new ArrayList<>();
+		List<Path> loadFile = new ArrayList<>();
+		List<HRefModel> uriNames = new ArrayList<>();
 		
 		try {
-			lodf = storageService.listSourceFiles(storageService.getUploadLocation());
-			for(Path pt : lodf) {
+			loadFile = storageService.listSourceFiles(storageService.getUploadLocation());
+			for(Path pathList : loadFile) {
 				HRefModel href = new HRefModel();
 				href.setHref(MvcUriComponentsBuilder
-						.fromMethodName(UploadController.class, "serveFile", pt.getFileName().toString())
+						.fromMethodName(UploadController.class, "serveFile", pathList.getFileName().toString())
 						.build()
 						.toString());
-				
-				href.setHrefText(pt.getFileName().toString());
-				uris.add(href);
+
+				href.setHrefText(pathList.getFileName().toString());
+				uriNames.add(href);
+
+
+
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		model.addAttribute("listOfEntries", uris);
+		model.addAttribute("listOfEntries", uriNames);
 		return "file_list :: urlFileList";
 	}
-	
-	@GetMapping("/files/{filename:.+}")
+
+	@GetMapping("/files/{filename:file}")
 	@ResponseBody
 	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
-		Resource file = storageService.loadAsResource(filename);
+		Resource file1 = storageService.loadAsResource(filename);
+
 		return ResponseEntity.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
-				.body(file);
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file1.getFilename() + "\"")
+				.body(file1);
 	}
-	
+
 	@RequestMapping(value = "/files/upload", method = RequestMethod.POST)
 	public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 		storageService.store(file);
+
+
 		redirectAttributes.addFlashAttribute("message", "You successfully uploaded " + file.getOriginalFilename() + "!");
 		return "redirect:/";
+
 	}
+
 }
